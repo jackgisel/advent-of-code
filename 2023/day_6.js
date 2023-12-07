@@ -31,7 +31,6 @@ function getWays(seconds, meters) {
 
 const res = Object.keys(races).reduce((acc, race) => {
     let ways = getWays(race, races[race])
-    console.log(race, ways)
     return ways * acc
 }, 1)
 
