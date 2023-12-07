@@ -31,7 +31,7 @@ function checkNeighborsForSymbol(xIndex, x, yIndex, y) {
 }
 
 function solvePart1(lines) {
-    let partNumbers = new Set()
+    let sum = 0
 
     lines.forEach((line, yIndex) => {
         let currentNumber = null
@@ -60,7 +60,7 @@ function solvePart1(lines) {
 
                 if (!isDigit(x) || xIndex === line.length - 1) {
                     if (hasBeenAdjecentToSymbol) {
-                        partNumbers.add(parseInt(currentNumber))
+                        sum += parseInt(currentNumber)
                     }
                     currentNumber = null
                     hasBeenAdjecentToSymbol = false
@@ -68,8 +68,8 @@ function solvePart1(lines) {
             }
         })
     });
-    let sum = 0
-    partNumbers.forEach(n => sum += n)
+
+
     return sum
 }
 
@@ -84,6 +84,7 @@ const part1Answer = solvePart1(lines)
 
 console.log("Part 1 Answer: ", part1Answer)
 
+console.assert(part1Answer === 540212, `Expected: ${540212} and received ${part1Answer}`)
 console.assert(part1Answer !== 544426, `Did not expect: ${544426} and received ${part1Answer}`)
 console.assert(part1Answer !== 513960, `Did not expect: ${513960} and received ${part1Answer}`)
 console.assert(part1Answer !== 536262, `Did not expect: ${536262} and received ${part1Answer}`)
