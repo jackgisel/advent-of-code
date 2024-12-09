@@ -2,10 +2,6 @@ const path = "./2024/3.txt";
 const file = Bun.file(path);
 const text = await file.text();
 
-const mulRegex = /mul\((\d+),(\d+)\)/g;
-const doRegex = /do\(\)/g;
-const dontRegex = /don't\(\)/g;
-
 let nSum = 0;
 let isEnabled = true; // By default, `mul` instructions are enabled
 
